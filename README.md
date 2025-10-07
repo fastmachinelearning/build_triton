@@ -18,6 +18,8 @@ Instructions to build a minimal Triton container for CMS.
     --image pytorch nvcr.io/nvidia/pytorch:25.08-py3 \
     --backend-tag onnxruntime r25.08_fix \
     --backend-org onnxruntime https://github.com/fastmachinelearning \
+    --backend-tag pytorch protect_thread_set \
+    --backend-org pytorch https://github.com/fastmachinelearning \
     --backend-tag tensorflow r25.06 \
     --extra-backend-cmake-arg tensorflow TRITON_TENSORFLOW_DOCKER_IMAGE "nvcr.io/nvidia/tensorflow:25.02-tf2-py3" \
     --override-backend-cmake-arg onnxruntime TRITON_ENABLE_ONNXRUNTIME_OPENVINO OFF \
