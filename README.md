@@ -2,6 +2,9 @@
 
 Instructions to build a minimal Triton container for CMS.
 
+NOTE: There are two images, one for the main production server and one for interactive debugging. They should always use the same base Triton image.
+If the version number of `SERVERBASE` or the base image for the debugging server is changed, the other should change to match (current version is `26.04`).
+
 ## Server build
 
 1. Checkout:
@@ -39,5 +42,21 @@ Instructions to build a minimal Triton container for CMS.
     ```bash
     docker push fastml/triton-torchgeo:26.04-py3-geometric
     ```
+
+This automatically triggers the Apptainer conversion and cvmfs synchronization via [unpacked](https://gitlab.cern.ch/unpacked/sync).
+
+## Debug Server build
+
+The server for the debugging interface is simple to build:
+
+1. Build the debug server:
+```bash
+docker build -t fastml/triton-debug:26.04-pyt-python-py3 -f Dockerfile.debug -m 16g . &> log_build_debug.log &
+```
+
+2. Push to DockerHub:
+```bash
+docker push fastml/triton-debug:26.04-pyt-python-py3
+```
 
 This automatically triggers the Apptainer conversion and cvmfs synchronization via [unpacked](https://gitlab.cern.ch/unpacked/sync).

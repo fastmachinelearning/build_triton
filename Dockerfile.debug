@@ -1,0 +1,6 @@
+FROM nvcr.io/nvidia/tritonserver:26.04-pyt-python-py3
+
+# Torch 2.6 below needs sympy<1.14
+RUN pip install sympy==1.13.1 onnxruntime-gpu
+
+RUN pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu126
