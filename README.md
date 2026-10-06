@@ -51,7 +51,7 @@ The server for the debugging interface is simple to build:
 
 1. Build the debug server:
 ```bash
-docker build -t fastml/triton-debug:26.04-pyt-python-py3 -f Docerkfile.debug -m 16g . &> log_build_debug.log &
+docker build -t fastml/triton-debug:26.04-pyt-python-py3 -f Dockerfile.debug -m 16g . &> log_build_debug.log &
 ```
 
 2. Push to DockerHub:
